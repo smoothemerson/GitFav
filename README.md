@@ -1,4 +1,4 @@
-<h1 align="center"> Github_Favorites </h1>
+<h1 align="center"> GitFav </h1>
 
 <p align="center">
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -13,7 +13,7 @@
 <br>
 
 <p align="center">
-  <img alt="Github Favorites" src="./github/preview.png" width="100%">
+  <img alt="GitFav" src="./github/preview.png" width="100%">
 </p>
 
 ## 🚀 Technologies
@@ -28,7 +28,7 @@ This project was developed with the following technologies:
 
 ## 💻 Project
 
-- [Access the finished project, online](https://smoothemerson.github.io/Github_Favorites/)
+- [Access the finished project, online](https://smoothemerson.github.io/GitFav/)
 
 - Project given by Rocketseat to advance in JavaScript
 
