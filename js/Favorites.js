@@ -59,7 +59,6 @@ export class FavoritesView extends Favorites {
 
     this.update();
     this.onadd();
-    this.noneElements();
   }
 
   onadd() {
@@ -75,36 +74,17 @@ export class FavoritesView extends Favorites {
         this.add(inputElement.value);
       }
     });
-    this.update();
   }
 
   get lengthOfUsers() {
     return this.entries.length;
   }
 
-  noneElements() {
-    const lengthOfUsers = this.lengthOfUsers;
-    let noneFav = this.tbody.querySelector(".noneFavorites");
-    const nonfav = document.querySelector(".id");
-    console.log(lengthOfUsers);
-
-    if (lengthOfUsers === 0) {
-      if (!noneFav) {
-        noneFav = this.createimg();
-        this.tbody.append(noneFav);
-      }
-    }
-    if (lengthOfUsers >= 1) {
-      if (noneFav) {
-        noneFav.remove();
-        nonfav.remove();
-      }
-    }
-  }
-
   update() {
     this.removeAllTr();
+    const lengthOfUsers = this.lengthOfUsers;
     const inputElement = this.root.querySelector(".search input");
+    const noneFav = this.createimg();
     inputElement.value = "";
 
     this.entries.forEach((user) => {
@@ -126,13 +106,22 @@ export class FavoritesView extends Favorites {
           this.delete(user);
         }
       };
-
       this.tbody.append(row);
     });
+
+    if (lengthOfUsers === 0) {
+      this.tbody.append(noneFav);
+    }
+    if (lengthOfUsers >= 1) {
+      if (noneFav) {
+        noneFav.remove();
+      }
+    }
   }
 
   createimg() {
     const nonefav = document.createElement("tr");
+    nonefav.classList.add("id");
 
     nonefav.innerHTML = `
             <td colspan="4" rowspan="8">
