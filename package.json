@@ -1,0 +1,15 @@
+{
+  "name": "gitfav",
+  "version": "1.0.0",
+  "description": "just a simple project by Rocketseat to practice Javascript",
+  "main": "main.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smoothemerson/Gitfav.git"
+  },
+  "author": "smoothemerson",
+  "license": "ISC"
+}
