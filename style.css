@@ -7,17 +7,24 @@
 :root {
   font-size: 62.5%;
 
-  --ff-primary: "Poppins", sans-serif;
-  --text-color: #303030;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Roboto Mono", monospace;
+  --text-color: hsl(240, 9%, 89%);
 
-  --hue: 194;
-  --primary-color: hsl(var(--hue), 100%, 63%);
-  --bg-body: hsl(192, 100%, 99%);
-  --input-color: hsl(0, 0%, 80%);
-  --bg-tr-even: hsl(0, 0%, 93%);
-  --bg-tr-odd: hsl(0, 0%, 87%);
-  --remove-button-color: hsl(0, 100%, 50%);
-  --table-shadow: rgba(0, 0, 0, 0.3);
+  --bg-body: hsl(0, 0%, 0%);
+  --bg-input: hsl(191, 65%, 7%);
+  --bg-button: hsl(195, 91%, 25%);
+  --bg-table: hsl(192, 63%, 3%);
+  --bg-th: hsl(194, 72%, 13%);
+  --bg-tr-even: hsl(191, 65%, 7%);
+  --bg-tr-odd: hsl(193, 61%, 6%);
+
+  --text-color-white: hsl(0, 0%, 100%);
+  --text-color-input: hsl(240, 6%, 51%);
+  --text-color-h2: hsl(189, 4%, 32%);
+  --remove-button-color: hsl(355, 91%, 66%);
+
+  --brd-color: hsl(191, 31%, 42%);
 }
 
 body {
@@ -28,6 +35,11 @@ body {
 
 body * {
   font-family: var(--ff-primary);
+}
+
+h1,
+.noneFavorites h2 {
+  font-family: var(--ff-secondary);
 }
 
 .sr-only {
@@ -43,8 +55,8 @@ body * {
 }
 
 #app {
-  padding: 2rem;
-  max-width: 500px;
+  padding-top: 2rem;
+  max-width: 100rem;
   margin: 0 auto;
 }
 
@@ -53,32 +65,62 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
-header h1 {
-  font-size: 2rem;
-  text-transform: uppercase;
+.title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+header .title h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+
+  color: var(--text-color-white);
 }
 
 .search {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .search input {
-  height: 3.2rem;
-  border: 1px solid var(--input-color);
-  border-radius: 0.4rem 0 0 0.4rem;
-  padding: 0 0.8rem;
+  min-width: 43rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.6rem;
+
+  color: var(--text-color);
+  background-color: var(--bg-input);
+}
+
+.search input::placeholder {
+  color: var(--text-color-input);
 }
 
 .search button {
-  background-color: var(--primary-color);
-  border-radius: 0 0.4rem 0.4rem 0;
-  height: 3.2rem;
+  padding: 1.2rem 3.2rem;
+
+  border-radius: 0.5rem;
   border: none;
-  padding: 0 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+
+  background-color: var(--bg-button);
+  color: var(--text-color-white);
 
   cursor: pointer;
 }
@@ -89,9 +131,14 @@ header h1 {
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  background-color: var(--bg-table);
+  border: 1px solid var(--brd-color);
 
-  box-shadow: 0 1rem 2rem -1rem var(--table-shadow);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 1.2rem;
+
+  margin-top: 8rem;
 }
 
 table * {
@@ -100,18 +147,25 @@ table * {
 }
 
 table th {
-  background: var(--primary-color);
+  background: var(--bg-th);
   text-align: left;
-  font-weight: normal;
   padding: 1.5rem;
 }
 
 table th:first-child {
-  border-top-left-radius: 0.4rem;
+  border-top-left-radius: 1.2rem;
 }
 
 table th:last-child {
-  border-top-right-radius: 0.4rem;
+  border-top-right-radius: 1.2rem;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 1.2rem;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 1.2rem;
 }
 
 table tr:nth-child(even) {
@@ -156,4 +210,20 @@ td .remove {
   color: var(--remove-button-color);
 
   cursor: pointer;
+}
+
+.noneFavorites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  height: 70vh;
+}
+
+.noneFavorites h2 {
+  color: var(--text-color-h2);
+
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 2rem;
 }
