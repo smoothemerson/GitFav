@@ -59,6 +59,7 @@ export class FavoritesView extends Favorites {
 
     this.update();
     this.onadd();
+    this.noneElements();
   }
 
   onadd() {
@@ -74,6 +75,31 @@ export class FavoritesView extends Favorites {
         this.add(inputElement.value);
       }
     });
+    this.update()
+  }
+
+  get lengthOfUsers() {
+    return this.entries.length;
+  }
+
+  noneElements() {
+    const lengthOfUsers = this.lengthOfUsers;
+    let noneFav = this.tbody.querySelector(".noneFavorites");
+    const nonfav = document.querySelector(".id");
+    console.log(lengthOfUsers);
+
+    if (lengthOfUsers === 0) {
+      if (!noneFav) {
+        noneFav = this.createimg();
+        this.tbody.append(noneFav);
+      }
+    }
+    if (lengthOfUsers >= 1) {
+      if (noneFav) {
+        noneFav.remove();
+        nonfav.remove();
+      }
+    }
   }
 
   update() {
@@ -95,7 +121,7 @@ export class FavoritesView extends Favorites {
       row.querySelector(".followers").textContent = user.followers;
 
       row.querySelector(".remove").onclick = () => {
-        const isOk = confirm("Tem certeza que desea deletar essa linha?");
+        const isOk = confirm("Tem certeza que deseja deletar essa linha?");
         if (isOk) {
           this.delete(user);
         }
@@ -103,6 +129,21 @@ export class FavoritesView extends Favorites {
 
       this.tbody.append(row);
     });
+  }
+
+  createimg() {
+    const nonefav = document.createElement("tr");
+
+    nonefav.innerHTML = `
+            <td colspan="4" rowspan="8">
+              <div class="noneFavorites">
+                <img src="./assets/nonefav.svg" alt="Imagem de uma estrela com um rosto" />
+                <h2 id="noneFavorites">Nenhum favorito ainda</h2>
+              </div>
+            </td>          
+    `;
+
+    return nonefav;
   }
 
   createRow() {
@@ -122,7 +163,7 @@ export class FavoritesView extends Favorites {
             <td class="repositories">27</td>
             <td class="followers">0</td>
             <td>
-              <button class="remove">&times;</button>
+              <button class="remove">Remover</button>
             </td>
     `;
 
@@ -130,8 +171,8 @@ export class FavoritesView extends Favorites {
   }
 
   removeAllTr() {
-    this.tbody.querySelectorAll("tr").forEach((tr) => {
-      tr.remove();
-    });
+      this.tbody.querySelectorAll("tr").forEach((tr) => {
+        tr.remove();
+      });
   }
 }
