@@ -6,12 +6,12 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Github Favorites</title>
+    <title>GitFav</title>
 
     <link rel="stylesheet" href="style.css" />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
@@ -20,27 +20,42 @@
   <body>
     <div id="app">
       <header>
-        <h1>Github Favorites</h1>
+        <div class="title">
+          <img src="./assets/gitfavicon.svg" alt="Ícone do GitFav" />
+          <h1>GitFav</h1>
+        </div>
         <div class="search">
           <label class="sr-only" for="input-search">Usuário do Github</label>
           <input
             id="input-search"
             type="text"
-            placeholder="Usuário do Github"
+            placeholder="Digite o Github username que quer favoritar"
           />
-          <button>&plus;</button>
+          <button>
+            <img src="./assets/star.svg" alt="Imagem de uma estrela" />
+            Favoritar
+          </button>
         </div>
       </header>
       <table>
         <thead>
           <tr>
             <th>Usuário</th>
-            <th>Repositórios</th>
+            <th>Repositories</th>
             <th>Followers</th>
-            <th></th>
+            <th>Ação</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <tr class="id">
+            <td colspan="4" rowspan="8">
+              <div class="noneFavorites">
+                <img src="./assets/nonefav.svg" alt="Imagem de uma estrela com um rosto" />
+                <h2 id="noneFavorites">Nenhum favorito ainda</h2>
+              </div>
+            </td>  
+          </tr>
+        </tbody>
       </table>
     </div>
   </body>
