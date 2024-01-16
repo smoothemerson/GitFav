@@ -75,7 +75,7 @@ export class FavoritesView extends Favorites {
         this.add(inputElement.value);
       }
     });
-    this.update()
+    this.update();
   }
 
   get lengthOfUsers() {
@@ -171,8 +171,8 @@ export class FavoritesView extends Favorites {
   }
 
   removeAllTr() {
-      this.tbody.querySelectorAll("tr").forEach((tr) => {
-        tr.remove();
-      });
+    this.tbody.querySelectorAll("tr").forEach((tr) => {
+      tr.remove();
+    });
   }
 }
