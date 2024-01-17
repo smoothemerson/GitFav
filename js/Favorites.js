@@ -85,9 +85,10 @@ export class FavoritesView extends Favorites {
     const lengthOfUsers = this.lengthOfUsers;
     const inputElement = this.root.querySelector(".search input");
     const noneFav = this.createimg();
+    const users = this.entries;
     inputElement.value = "";
 
-    this.entries.forEach((user) => {
+    users.forEach((user) => {
       const row = this.createRow();
 
       row.querySelector(
@@ -112,6 +113,7 @@ export class FavoritesView extends Favorites {
     if (lengthOfUsers === 0) {
       this.tbody.append(noneFav);
     }
+
     if (lengthOfUsers >= 1) {
       if (noneFav) {
         noneFav.remove();
@@ -121,15 +123,17 @@ export class FavoritesView extends Favorites {
 
   createimg() {
     const nonefav = document.createElement("tr");
-    nonefav.classList.add("id");
 
     nonefav.innerHTML = `
-            <td colspan="4" rowspan="8">
-              <div class="noneFavorites">
-                <img src="./assets/nonefav.svg" alt="Imagem de uma estrela com um rosto" />
-                <h2 id="noneFavorites">Nenhum favorito ainda</h2>
-              </div>
-            </td>          
+                <td colspan="4" rowspan="8">
+                <div class="noneFavorites">
+                  <img
+                    src="./assets/nonefav.svg"
+                    alt="Imagem de uma estrela com um rosto"
+                  />
+                  <h2>Nenhum favorito ainda</h2>
+                </div>
+              </td>         
     `;
 
     return nonefav;
