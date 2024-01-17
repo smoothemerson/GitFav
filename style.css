@@ -13,7 +13,7 @@
 
   --bg-body: hsl(0, 0%, 0%);
   --bg-input: hsl(191, 65%, 7%);
-  --bg-button: hsl(195, 91%, 25%);
+  --bg-button-hover: hsl(195, 91%, 25%);
   --bg-table: hsl(192, 63%, 3%);
   --bg-th: hsl(194, 72%, 13%);
   --bg-tr-even: hsl(191, 65%, 7%);
@@ -119,14 +119,20 @@ header .title h1 {
   line-height: 2.4rem;
   text-transform: uppercase;
 
-  background-color: var(--bg-button);
+  background-color: var(--bg-button-hover);
   color: var(--text-color-white);
 
   cursor: pointer;
 }
 
+.search button:hover #starImg {
+  filter: invert(100%) sepia(100%) hue-rotate(195deg) saturate(91%)
+    brightness(25%);
+}
+
 .search button:hover {
-  filter: brightness(1.1);
+  background-color: var(--text-color-white);
+  color: var(--bg-button-hover);
 }
 
 table {
@@ -154,6 +160,12 @@ table th {
 
 table th:first-child {
   border-top-left-radius: 1.2rem;
+  min-width: 15rem;
+  padding-left: 3rem;
+}
+
+table td:first-child {
+  padding-left: 3rem;
 }
 
 table th:last-child {
@@ -217,7 +229,7 @@ td .remove {
   justify-content: center;
   align-items: center;
   gap: 6rem;
-  height: 70vh;
+  height: 60vh;
 }
 
 .noneFavorites h2 {
