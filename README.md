@@ -20,9 +20,3 @@ This project was developed with the following technologies:
 - Git and GitHub
 - Figma
 - Node.js
-
-## 💻 Project
-
-- [Access the finished project, online](https://smoothemerson.github.io/GitFav/)
-
-- Project given by Rocketseat in Stage 06 of the Explorer Course
